@@ -30,15 +30,25 @@ from official.legacy.bert import run_squad
 from official.utils.misc import keras_utils
 
 
+# PRETRAINED_CHECKPOINT_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-24_H-1024_A-16/bert_model.ckpt'
+# SQUAD_TRAIN_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_train.tf_record'
+# SQUAD_PREDICT_FILE = 'gs://tf-perfzero-data/bert/squad/dev-v1.1.json'
+# SQUAD_VOCAB_FILE = 'gs://tf-perfzero-data/bert/squad/vocab.txt'
+# SQUAD_MEDIUM_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_medium_meta_data'
+# SQUAD_LONG_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_long_meta_data'
+# SQUAD_FULL_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_full_meta_data'
+# MODEL_CONFIG_FILE_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-24_H-1024_A-16/bert_config.json'
+
+"""add: local data paths"""
 # pylint: disable=line-too-long
-PRETRAINED_CHECKPOINT_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-24_H-1024_A-16/bert_model.ckpt'
-SQUAD_TRAIN_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_train.tf_record'
-SQUAD_PREDICT_FILE = 'gs://tf-perfzero-data/bert/squad/dev-v1.1.json'
-SQUAD_VOCAB_FILE = 'gs://tf-perfzero-data/bert/squad/vocab.txt'
-SQUAD_MEDIUM_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_medium_meta_data'
-SQUAD_LONG_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_long_meta_data'
-SQUAD_FULL_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_full_meta_data'
-MODEL_CONFIG_FILE_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-24_H-1024_A-16/bert_config.json'
+PRETRAINED_CHECKPOINT_PATH = '/data/uncased_L-24_H-1024_A-16/bert_model'
+SQUAD_TRAIN_DATA_PATH = '/data/squad_v1.1/squad/v1.1/3.0.0/squad-train.tfrecord'
+SQUAD_PREDICT_FILE = '/data/squad_v1.1/squad/v1.1/3.0.0/squad-validation.tfrecord'
+SQUAD_VOCAB_FILE = '/data/uncased_L-24_H-1024_A-16/vocab.txt'
+SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1.1/squad/v1.1/3.0.0/dataset_info.json'
+SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1.1/squad/v1.1/3.0.0/dataset_info.json'
+SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1.1/squad/v1.1/3.0.0/dataset_info.json'
+MODEL_CONFIG_FILE_PATH = '/data/uncased_L-24_H-1024_A-16/bert_config.json'
 # pylint: enable=line-too-long
 
 TMP_DIR = os.getenv('TMPDIR')
