@@ -42,12 +42,12 @@ from official.utils.misc import keras_utils
 """add: local data paths"""
 # pylint: disable=line-too-long
 PRETRAINED_CHECKPOINT_PATH = '/data/uncased_L-24_H-1024_A-16/bert_model.ckpt'
-SQUAD_TRAIN_DATA_PATH = '/data/squad_v1_1/squad/processed/squad-train.tfrecord'
+SQUAD_TRAIN_DATA_PATH = '/data/squad_v1_1/processed/squad-train.tfrecord'
 SQUAD_PREDICT_FILE = '/data/squad_v1_1/squad/downloads/rajpurkar_SQuAD-explorer_dev-v1.1lapqUtXWpzVWM2Z1PKUEkqZYAx2nTzAaxSOLA5Zpcsk.json'
 SQUAD_VOCAB_FILE = '/data/uncased_L-24_H-1024_A-16/vocab.txt'
-SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1_1/squad/processed/squad_full_meta_data'
-SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1_1/squad/processed/squad_full_meta_data'
-SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1_1/squad/processed/squad_full_meta_data'
+SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
+SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
+SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
 MODEL_CONFIG_FILE_PATH = '/data/uncased_L-24_H-1024_A-16/bert_config.json'
 # pylint: enable=line-too-long
 
