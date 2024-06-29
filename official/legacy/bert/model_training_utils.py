@@ -19,11 +19,12 @@ import os
 import tempfile
 
 from absl import logging
-#import tensorflow as tf, tf_keras
 
 # hhlee
+#import tensorflow as tf, tf_keras
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import tensorflow as tf
-import tensorflow.keras as tf_keras
+import keras as tf_keras
 
 from tensorflow.python.util import deprecation
 from official.common import distribute_utils
@@ -479,9 +480,9 @@ def run_customized_training_loop(
 
       # Training loss/metric are taking average over steps inside micro
       # training loop. We reset the their values before each round.
-      train_loss_metric.reset_states()
+      train_loss_metric = tf_keras.metrics.Mean()
       for metric in train_metrics + model.metrics:
-        metric.reset_states()
+        metric = tf_keras.metrics.Mean()
 
       callback_list.on_batch_begin(current_step)
       # Runs several steps in the host while loop.
@@ -541,9 +542,9 @@ def run_customized_training_loop(
                            checkpoint_name.format(step=current_step))
           if eval_input_fn:
             # Re-initialize evaluation metric.
-            eval_loss_metric.reset_states()
+            eval_loss_metric = tf_keras.metrics.Mean()
             for metric in eval_metrics + model.metrics:
-              metric.reset_states()
+              metric = tf_keras.metrics.Mean()
 
             logging.info('Running evaluation after step: %s.', current_step)
             logs = _run_evaluation(current_step,
@@ -566,9 +567,9 @@ def run_customized_training_loop(
                      checkpoint_name.format(step=current_step))
     if eval_input_fn:
       # Re-initialize evaluation metric.
-      eval_loss_metric.reset_states()
+      eval_loss_metric = tf_keras.metrics.Mean()
       for metric in eval_metrics + model.metrics:
-        metric.reset_states()
+        metric = tf_keras.metrics.Mean()
 
       logging.info('Running final evaluation after training is complete.')
       logs = _run_evaluation(current_step,

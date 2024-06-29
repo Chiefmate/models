@@ -18,7 +18,11 @@ import os
 
 from absl.testing import parameterized
 import numpy as np
-import tensorflow as tf, tf_keras
+# hhlee
+#import tensorflow as tf, tf_keras
+os.environ["KERAS_BACKEND"] = "tensorflow"
+import tensorflow as tf
+import keras as tf_keras
 import tensorflow_hub as hub
 
 from official.legacy.bert import configs
