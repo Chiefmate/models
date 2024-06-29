@@ -291,6 +291,21 @@ class BertSquadBenchmarkReal(BertSquadBenchmarkBase):
 
     self._run_and_report_benchmark()
 
+  # hhlee -- start
+  def benchmark_4_gpu_fp16(self):
+    """Tests BERT SQuAD model performance with 4 GPUs."""
+
+    self._setup()
+    self.num_gpus = 4
+    FLAGS.model_dir = self._get_model_dir('benchmark_4_gpu_squad_fp16')
+    FLAGS.train_batch_size = 32
+    FLAGS.dtype = 'fp16'
+    FLAGS.loss_scale = 'dynamic'
+    FLAGS.tf_gpu_thread_mode = 'gpu_private'
+
+    self._run_and_report_benchmark()
+  # hhlee -- end
+
   def benchmark_8_gpu_xla_fp16(self):
     """Tests BERT SQuAD model performance with 8 GPUs with XLA."""
 
