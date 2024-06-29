@@ -21,7 +21,10 @@ from absl.testing import flagsaver
 from absl.testing import parameterized
 from absl.testing.absltest import mock
 import numpy as np
-import tensorflow as tf, tf_keras
+# hhlee
+#import tensorflow as tf, tf_keras
+import tensorflow as tf
+import tensorflow.keras as tf_keras
 
 from tensorflow.python.distribute import combinations
 from tensorflow.python.distribute import strategy_combinations
