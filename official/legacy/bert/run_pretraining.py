@@ -21,8 +21,10 @@ from absl import logging
 import gin
 # hhlee
 #import tensorflow as tf, tf_keras
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import tensorflow as tf
-import tensorflow.keras as tf_keras
+import keras as tf_keras
 from official.common import distribute_utils
 from official.legacy.bert import bert_models
 from official.legacy.bert import common_flags

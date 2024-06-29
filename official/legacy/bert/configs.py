@@ -18,7 +18,12 @@ import copy
 import json
 
 import six
-import tensorflow as tf, tf_keras
+# hhlee
+#import tensorflow as tf, tf_keras
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
+import tensorflow as tf
+import keras as tf_keras
 
 
 class BertConfig(object):

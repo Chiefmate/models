@@ -23,8 +23,9 @@ from absl.testing.absltest import mock
 import numpy as np
 # hhlee
 #import tensorflow as tf, tf_keras
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import tensorflow as tf
-import tensorflow.keras as tf_keras
+import keras as tf_keras
 
 from tensorflow.python.distribute import combinations
 from tensorflow.python.distribute import strategy_combinations

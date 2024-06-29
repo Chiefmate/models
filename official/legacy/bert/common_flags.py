@@ -17,8 +17,10 @@
 from absl import flags
 # hhlee
 #import tensorflow as tf, tf_keras
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import tensorflow as tf
-import tensorflow.keras as tf_keras
+import keras as tf_keras
 
 from official.utils import hyperparams_flags
 from official.utils.flags import core as flags_core

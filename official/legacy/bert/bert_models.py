@@ -18,8 +18,10 @@ import gin
 
 # hhlee
 #import tensorflow as tf, tf_keras
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import tensorflow as tf
-import tensorflow.keras as tf_keras
+import keras as tf_keras
 
 import tensorflow_hub as hub
 from official.legacy.albert import configs as albert_configs

@@ -16,8 +16,10 @@
 
 # hhlee
 #import tensorflow as tf, tf_keras
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import tensorflow as tf
-import tensorflow.keras as tf_keras
+import keras as tf_keras
 
 
 def decode_record(record, name_to_features):
