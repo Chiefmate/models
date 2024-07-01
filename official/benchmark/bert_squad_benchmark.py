@@ -755,7 +755,7 @@ class BertSquadMultiWorkerBenchmarkOne(BertSquadBenchmarkBase):
     FLAGS.model_dir = self._get_model_dir(
         'benchmark_1_gpu_{}_worker_fp16_{}_tweaked'.format(
             num_workers, all_reduce_alg))
-    FLAGS.train_batch_size = 4 * num_gpus * num_workers
+    FLAGS.train_batch_size = 1 * num_gpus * num_workers     # 4 for V100s
     FLAGS.all_reduce_alg = all_reduce_alg
 
     self._run_and_report_benchmark()
