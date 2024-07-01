@@ -646,7 +646,7 @@ class BertSquadMultiWorkerBenchmarkFour(BertSquadBenchmarkBase):
     summary = self._read_training_summary_from_file()
     summary['start_time_sec'] = start_time_sec
 
-    super(BertSquadMultiWorkerBenchmark, self)._report_benchmark(
+    super(BertSquadMultiWorkerBenchmarkFour, self)._report_benchmark(
         stats=summary,
         wall_time_sec=wall_time_sec,
         min_accuracy=0,
