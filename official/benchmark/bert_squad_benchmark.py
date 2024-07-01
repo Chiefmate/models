@@ -751,7 +751,7 @@ class BertSquadMultiWorkerBenchmarkOne(BertSquadBenchmarkBase):
     FLAGS.enable_xla = False
     FLAGS.distribution_strategy = 'multi_worker_mirrored'
     FLAGS.tf_gpu_thread_mode = 'gpu_private'
-    FLAGS.datasets_num_private_threads = 32
+    FLAGS.datasets_num_private_threads = 8
     FLAGS.model_dir = self._get_model_dir(
         'benchmark_1_gpu_{}_worker_fp16_{}_tweaked'.format(
             num_workers, all_reduce_alg))
