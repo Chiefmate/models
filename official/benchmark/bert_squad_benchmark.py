@@ -39,15 +39,27 @@ from official.utils.misc import keras_utils
 # SQUAD_FULL_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_full_meta_data'
 # MODEL_CONFIG_FILE_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/cased_L-12_H-768_A-12/bert_config.json'
 
-"""add: local data paths"""
+"""add: local data paths -- BERT-base w/ whole SQuAD v1.1 dataset"""
+# pylint: disable=line-too-long
+# PRETRAINED_CHECKPOINT_PATH = '/data/cased_L-12_H-768_A-12/bert_model.ckpt'
+# SQUAD_TRAIN_DATA_PATH = '/data/squad_v1_1/processed/squad-train.tfrecord'
+# SQUAD_PREDICT_FILE = '/data/squad_v1_1/squad/downloads/rajpurkar_SQuAD-explorer_dev-v1.1lapqUtXWpzVWM2Z1PKUEkqZYAx2nTzAaxSOLA5Zpcsk.json'
+# SQUAD_VOCAB_FILE = '/data/cased_L-12_H-768_A-12/vocab.txt'
+# SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
+# SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
+# SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
+# MODEL_CONFIG_FILE_PATH = '/data/cased_L-12_H-768_A-12/bert_config.json'
+# pylint: enable=line-too-long
+
+"""add: local data paths -- BERT-base w/ 10 article samples of SQuAD v1.1 dataset"""
 # pylint: disable=line-too-long
 PRETRAINED_CHECKPOINT_PATH = '/data/cased_L-12_H-768_A-12/bert_model.ckpt'
-SQUAD_TRAIN_DATA_PATH = '/data/squad_v1_1/processed/squad-train.tfrecord'
+SQUAD_TRAIN_DATA_PATH = '/data/squad_v1_1/10articles_sample/processed/squad-train.tfrecord'
 SQUAD_PREDICT_FILE = '/data/squad_v1_1/squad/downloads/rajpurkar_SQuAD-explorer_dev-v1.1lapqUtXWpzVWM2Z1PKUEkqZYAx2nTzAaxSOLA5Zpcsk.json'
 SQUAD_VOCAB_FILE = '/data/cased_L-12_H-768_A-12/vocab.txt'
-SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
-SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
-SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
+SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1_1/10articles_sample/processed/squad_full_meta_data'
+SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1_1/10articles_sample/processed/squad_full_meta_data'
+SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1_1/10articles_sample/processed/squad_full_meta_data'
 MODEL_CONFIG_FILE_PATH = '/data/cased_L-12_H-768_A-12/bert_config.json'
 # pylint: enable=line-too-long
 
