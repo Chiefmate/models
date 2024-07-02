@@ -30,25 +30,25 @@ from official.legacy.bert import run_squad
 from official.utils.misc import keras_utils
 
 
-# PRETRAINED_CHECKPOINT_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-24_H-1024_A-16/bert_model.ckpt'
+# PRETRAINED_CHECKPOINT_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/cased_L-12_H-768_A-12/bert_model.ckpt'
 # SQUAD_TRAIN_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_train.tf_record'
 # SQUAD_PREDICT_FILE = 'gs://tf-perfzero-data/bert/squad/dev-v1.1.json'
 # SQUAD_VOCAB_FILE = 'gs://tf-perfzero-data/bert/squad/vocab.txt'
 # SQUAD_MEDIUM_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_medium_meta_data'
 # SQUAD_LONG_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_long_meta_data'
 # SQUAD_FULL_INPUT_META_DATA_PATH = 'gs://tf-perfzero-data/bert/squad/squad_full_meta_data'
-# MODEL_CONFIG_FILE_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-24_H-1024_A-16/bert_config.json'
+# MODEL_CONFIG_FILE_PATH = 'gs://cloud-tpu-checkpoints/bert/keras_bert/cased_L-12_H-768_A-12/bert_config.json'
 
 """add: local data paths"""
 # pylint: disable=line-too-long
-PRETRAINED_CHECKPOINT_PATH = '/data/uncased_L-24_H-1024_A-16/bert_model.ckpt'
+PRETRAINED_CHECKPOINT_PATH = '/data/cased_L-12_H-768_A-12/bert_model.ckpt'
 SQUAD_TRAIN_DATA_PATH = '/data/squad_v1_1/processed/squad-train.tfrecord'
 SQUAD_PREDICT_FILE = '/data/squad_v1_1/squad/downloads/rajpurkar_SQuAD-explorer_dev-v1.1lapqUtXWpzVWM2Z1PKUEkqZYAx2nTzAaxSOLA5Zpcsk.json'
-SQUAD_VOCAB_FILE = '/data/uncased_L-24_H-1024_A-16/vocab.txt'
+SQUAD_VOCAB_FILE = '/data/cased_L-12_H-768_A-12/vocab.txt'
 SQUAD_MEDIUM_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
 SQUAD_LONG_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
 SQUAD_FULL_INPUT_META_DATA_PATH = '/data/squad_v1_1/processed/squad_full_meta_data'
-MODEL_CONFIG_FILE_PATH = '/data/uncased_L-24_H-1024_A-16/bert_config.json'
+MODEL_CONFIG_FILE_PATH = '/data/cased_L-12_H-768_A-12/bert_config.json'
 # pylint: enable=line-too-long
 
 TMP_DIR = os.getenv('TMPDIR')
@@ -630,7 +630,7 @@ class BertSquadMultiWorkerBenchmarkFour(BertSquadBenchmarkBase):
     FLAGS.input_meta_data_path = SQUAD_FULL_INPUT_META_DATA_PATH
     FLAGS.bert_config_file = MODEL_CONFIG_FILE_PATH
     FLAGS.num_train_epochs = 1
-    FLAGS.steps_per_loop = 10 # 100
+    FLAGS.steps_per_loop = 100
 
   @benchmark_wrappers.enable_runtime_flags
   def _run_and_report_benchmark(self, use_ds=True, run_eagerly=False):
@@ -719,7 +719,7 @@ class BertSquadMultiWorkerBenchmarkOne(BertSquadBenchmarkBase):
     FLAGS.input_meta_data_path = SQUAD_FULL_INPUT_META_DATA_PATH
     FLAGS.bert_config_file = MODEL_CONFIG_FILE_PATH
     FLAGS.num_train_epochs = 1
-    FLAGS.steps_per_loop = 10 # 100
+    FLAGS.steps_per_loop = 100
 
   @benchmark_wrappers.enable_runtime_flags
   def _run_and_report_benchmark(self, use_ds=True, run_eagerly=False):
