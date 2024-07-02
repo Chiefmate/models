@@ -630,7 +630,7 @@ class BertSquadMultiWorkerBenchmarkFour(BertSquadBenchmarkBase):
     FLAGS.input_meta_data_path = SQUAD_FULL_INPUT_META_DATA_PATH
     FLAGS.bert_config_file = MODEL_CONFIG_FILE_PATH
     FLAGS.num_train_epochs = 1
-    FLAGS.steps_per_loop = 100
+    FLAGS.steps_per_loop = 10 # 100
 
   @benchmark_wrappers.enable_runtime_flags
   def _run_and_report_benchmark(self, use_ds=True, run_eagerly=False):
@@ -719,7 +719,7 @@ class BertSquadMultiWorkerBenchmarkOne(BertSquadBenchmarkBase):
     FLAGS.input_meta_data_path = SQUAD_FULL_INPUT_META_DATA_PATH
     FLAGS.bert_config_file = MODEL_CONFIG_FILE_PATH
     FLAGS.num_train_epochs = 1
-    FLAGS.steps_per_loop = 100
+    FLAGS.steps_per_loop = 10 # 100
 
   @benchmark_wrappers.enable_runtime_flags
   def _run_and_report_benchmark(self, use_ds=True, run_eagerly=False):
@@ -751,7 +751,7 @@ class BertSquadMultiWorkerBenchmarkOne(BertSquadBenchmarkBase):
     FLAGS.enable_xla = False
     FLAGS.distribution_strategy = 'multi_worker_mirrored'
     FLAGS.tf_gpu_thread_mode = 'gpu_private'
-    FLAGS.datasets_num_private_threads = 8
+    FLAGS.datasets_num_private_threads = 32
     FLAGS.model_dir = self._get_model_dir(
         'benchmark_1_gpu_{}_worker_fp16_{}_tweaked'.format(
             num_workers, all_reduce_alg))
