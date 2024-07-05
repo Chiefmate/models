@@ -807,7 +807,7 @@ class BertSquadMultiWorkerBenchmarkOne(BertSquadBenchmarkBase):
 class BertSquadMultiWorkerBenchmarkTwo(BertSquadBenchmarkBase):
   """BERT SQuAD distributed benchmark tests with multiple workers."""
 
-  def __init__(self, output_dir=TMP_DIR, tpu=NTwo, **kwargs):
+  def __init__(self, output_dir=TMP_DIR, tpu=None, **kwargs):
     super(BertSquadMultiWorkerBenchmarkTwo, self).__init__(
         output_dir=output_dir, tpu=tpu, **kwargs)
 
