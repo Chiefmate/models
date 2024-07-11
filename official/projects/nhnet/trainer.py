@@ -98,6 +98,33 @@ class Trainer(tf_keras.Model):
     super(Trainer, self).__init__()
     self.model = model
     self.params = params
+    # print skeness data
+    tensors = [v for v in tf.trainable_variables()]
+    tensor_sizes = []
+    for tensor in tensors:
+      shape = tensor.get_shape().as_list()
+      #print(shape)
+      num_elements = 1
+      for dim in shape:
+        num_elements *= dim
+      tensorsize = num_elements*tensor.dtype.size
+      tensor_sizes.append(tensorsize)
+    print("Tensorsize>", tensor_sizes)
+    # model size (MB)
+    model_size = sum(tensor_sizes) / (1024 ** 2)
+    # number of large tensor 
+    large_tensors = [size for size in tensor_sizes if size >= (1 * 1024 **2)]
+    num_large_tensors = len(large_tensors)
+    # size of largest tensor (MB)
+    largest_tensor_size = max(tensor_sizes) / (1024 ** 2)
+    # ratio of largest tensor (%)
+    largest_tensor_ratio = (largest_tensor_size / model_size) * 100
+    print("Skewness data> ","model_size_mb":model_size,
+      "num_tensors":len(tensor_sizes),
+      "num_large_tensors":num_large_tensors,
+      "largest_tensor_size_mb":largest_tensor_size,
+      "largest_tensor_ratio":largest_tensor_ratio)  
+    # oriignal code below
     self._num_replicas_in_sync = tf.distribute.get_strategy(
     ).num_replicas_in_sync
 
