@@ -109,7 +109,8 @@ class Trainer(tf_keras.Model):
         num_elements *= dim
       tensorsize = num_elements*tensor.dtype.size
       tensor_sizes.append(tensorsize)
-    print("Tensorsize>", tensor_sizes)
+    # print("Tensorsize>", tensor_sizes)
+    logging.info('Tensorsize> %s.', tensor_sizes)
     # model size (MB)
     model_size = sum(tensor_sizes) / (1024 ** 2)
     # number of large tensor 
@@ -119,11 +120,17 @@ class Trainer(tf_keras.Model):
     largest_tensor_size = max(tensor_sizes) / (1024 ** 2)
     # ratio of largest tensor (%)
     largest_tensor_ratio = (largest_tensor_size / model_size) * 100
-    print("Skewness data> ","model_size_mb":model_size,
-      "num_tensors":len(tensor_sizes),
-      "num_large_tensors":num_large_tensors,
-      "largest_tensor_size_mb":largest_tensor_size,
-      "largest_tensor_ratio":largest_tensor_ratio)  
+    # print("Skewness data> ","model_size_mb":model_size,
+    #   "num_tensors":len(tensor_sizes),
+    #   "num_large_tensors":num_large_tensors,
+    #   "largest_tensor_size_mb":largest_tensor_size,
+    #   "largest_tensor_ratio":largest_tensor_ratio)
+    logging.info('model_size_mb> %d.', model_size)
+    logging.info('num_tensors> %d.', len(tensor_sizes))
+    logging.info('num_large_tensors> %d.', num_large_tensors)
+    logging.info('largest_tensor_size_mb> %d.', largest_tensor_size)
+    logging.info('largest_tensor_ratio> %d.', largest_tensor_ratio)
+
     # oriignal code below
     self._num_replicas_in_sync = tf.distribute.get_strategy(
     ).num_replicas_in_sync
